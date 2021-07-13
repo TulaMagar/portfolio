@@ -1,0 +1,176 @@
+import os
+from django.shortcuts import render, redirect
+from faker import Faker
+import psycopg2
+from openpyxl import load_workbook
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .decorators import unauthenticated_user, allowed_users
+
+@login_required(login_url='/registration/login/')
+def login_request(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request=request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"You are now logged in as {username}")
+                return render(request, 'index.html')
+            else:
+                messages.error(request, "Invalid username or password.")
+        else:
+            messages.error(request, "Invalid username or password.")
+    form = AuthenticationForm()
+    return render(request = request,
+                    template_name = "login.html",
+                    context={"form":form})
+
+@unauthenticated_user
+def login(request):
+    """
+    Creates login view
+    Returns: rendered login page
+    """
+    return render(request, 'registration/login.html')
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form})
+
+def logout_request(request):
+    logout(request)
+    messages.info(request, "you have successfully logged out.")
+    return redirect('login')
+
+
+def home(request):
+    if request.method == 'POST':
+        if request.FILES.get('document'):
+            file = request.FILES['document']
+                         
+            workbook = load_workbook(filename=file, data_only=True)
+            xls = workbook[workbook.sheetnames[0]] 
+
+            connection = connect_to_db()
+            sql_create_movie_table = ''' CREATE TABLE IF NOT EXISTS movie (
+                                            name text PRIMARY KEY,
+                                            image text,
+                                            url text
+                                            )'''
+            fake = Faker()
+            if connection is not None:
+                create_table(connection, sql_create_movie_table)
+                
+                num_rows = xls.max_row
+                while True:
+                    if xls.cell(num_rows, 3).value is not None:
+                        break
+                    else:
+                        num_rows -= 1
+                for i in range(2, num_rows+1):
+                    """
+                        encoded_string = ''
+                        with open(xls['B'+str(i)].value, 'rb') as img_f:
+                        encoded_string = base64.b64encode(img_f.read())
+                    """
+                    student = (xls['A'+str(i)].value,
+                               xls['B'+str(i)].value,
+                               xls['C'+str(i)].value)
+                               
+                    create_movie(connection, student)
+                    
+            return render(request, 'index.html')
+    return render(request, 'upload.html')
+
+def connect_to_db():
+    """
+    Creates a connection to the database
+    Returns database connection
+    """
+    if 'ON_HEROKU' in os.environ:
+        connection = psycopg2.connect(os.environ['DATABASE_URL'],
+                                      sslmode='require')
+    else:
+        connection = psycopg2.connect(dbname="postgres",
+                                      user="postgres",
+                                      password="Computer",
+                                      host="127.0.0.1",
+                                      port="5432")
+    return connection
+
+def create_table(conn, create_table_sql):
+    """
+    Creates a database table
+    Inputs: database connection, SQL for table creation
+    """
+    try:
+        cur = conn.cursor()
+        cur.execute("DROP TABLE IF EXISTS movie")
+        cur.execute(create_table_sql)
+        conn.commit()
+    except psycopg2.OperationalError as error:
+        print(error)
+
+def create_movie(conn, movie):
+    """
+    Inserts into movie table using SQL
+    Inputs: database connection and movie tuple
+    Returns: auto increment value property of row
+    """
+    sql = ''' INSERT INTO movie(name, image, url)
+              VALUES(%s, %s, %s)'''
+    cur = conn.cursor()
+    cur.execute(sql, movie)
+    conn.commit()
+    return cur.lastrowid
+
+@allowed_users(allowed_roles=['users',
+                              'creator'])
+def movies(request):
+    connection = connect_to_db()
+    cursor = connection.cursor()
+    sql = 'SELECT * FROM movie;'
+    cursor.execute(sql)
+    results = cursor.fetchall()
+
+    results_dict = {
+        'movies': results
+    }
+
+    cursor.close()
+    connection.close()
+    return render(request, 'movies.html', results_dict)
+
+
+@allowed_users(allowed_roles=['creator'])
+def store(request):
+    if request.method == 'POST':
+        student_id = request.POST.get('id')
+        if request.POST.get('update'):
+            result = (request.POST.get('name'),
+                       request.POST.get('image'),
+                       request.POST.get('url'))
+            connection = connect_to_db()
+            create_movie(connection, result)
+    return render(request, 'store.html')
+
+def PhysicalActivity(request):
+
+    return render(request, 'physical_activity.html')

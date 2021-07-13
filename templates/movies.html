@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>movie collection</title>
+        <meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source Sans Pro">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable({
+                "order": []
+            });
+        });
+        </script>
+        <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid black;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .img_center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 150px;
+        }
+            
+        </style>
+    </head>
+    <body> {% load static %} {% block content %}
+        <div class="w3-container">
+            <div class="w3-bar w3-border w3-light-grey">
+                <a class="w3-bar-item w3-hover-green w3-button" href="{% url 'home' %}"><i class="fa fa-home"></i></a>  
+                <a class="w3-bar-item w3-hover-orange"  href="{% url 'store' %}">store</a>
+                <a class="w3-bar-item w3-hover-blue">Programming blog</a>
+                <a class="w3-bar-item w3-hover-red" href="{% url 'logout' %}">Log out</a>
+            </div>
+        </div>
+        <p>This is for test</p>
+
+        
+        <div class="w3-container" style="overflow-x:auto; margin-top: 100px; width:80%; margin:auto;">
+            <table id="myTable" class="display cell-border compact"> 
+                <thead>
+                    <th>Movie link</th>
+                    <th>Movie info</th>
+                </thead>
+                {% for movie in movies %}
+                <tbody>
+                    
+                    <td style="width:200px" ><a href={{movie.2}}> <img src="data:image/jpeg;base64,{{movie.1}}" class="w3-hover-opacity w3-border w3-padding img_center"/></a> </td>              
+                    <td ><h3>{{movie.0}}</h3> </td>
+                    <p name="space for a reason" style="margin-top: 10px; padding: 10px;"></p>
+                </tbody>
+                {% endfor %} 
+        </div>   
+
+        {% endblock content %}
+    </body>
+</html>

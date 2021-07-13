@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+<body  style="background-image:linear-gradient(#1e415e 10%, #2b5b84 90%); background-repeat: no-repeat;background-attachment: fixed;  
+background-size: cover;">
+
+<h2 class="w3-center w3-light-blue"> <i class="fa fa-heart"></i> Welcome To Tula Magar portfolio <i class="fa fa-heart"></i> </h2> 
+
+<div class="w3-container w3-right">
+    <div class="w3-bar w3-border w3-light-grey">
+        <a class="w3-bar-item w3-hover-red" href="{% url 'store' %}">store</a>
+        <a class="w3-bar-item w3-hover-green" href="{% url 'movie' %}">Movie</a>
+        <a class="w3-bar-item w3-hover-blue">Programming blog</a>
+        <a class="w3-bar-item w3-hover-red" href="{% url 'logout' %}">Log out</a>
+        <a class="w3-bar-item w3-hover-red" href="{% url 'PhysicalActivity' %}">Physical Activity</a>
+    </div>
+</div>
+
+<img src="{% static 'IMG_1767.JPG' %}" width="500" height="333"/>
+
+</body>
+</html>

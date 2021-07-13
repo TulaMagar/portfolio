@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>movie collection</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable({
+                "order": []
+            });
+        });
+        </script>
+        <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid black;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
+
+        a {
+            text-decoration: none;
+        }
+        </style>
+    </head>
+<body>
+  <div class="w3-container">
+    <div class="w3-bar w3-border w3-light-grey">
+      <a class="w3-bar-item w3-hover-green w3-button" href="{% url 'home' %}"><i class="fa fa-home"></i></a>  
+      <a class="w3-bar-item w3-hover-red" href="{% url 'store' %}">store</a>
+        <a class="w3-bar-item w3-hover-blue">Programming blog</a>
+    </div>
+  </div>
+
+  <div class="w3-container w3-center">
+      {% load static %}
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="file" name="document" class="file-upload">
+          <button type="submit" class="file-upload-btn">Upload</button>
+        </form>
+  </div>
+
+</body>
+</html>
