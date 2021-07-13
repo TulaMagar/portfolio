@@ -9,6 +9,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user, allowed_users
+from django.contrib.auth.models import Group
+
 
 @login_required(login_url='/registration/login/')
 def login_request(request):
@@ -40,19 +42,18 @@ def login(request):
     return render(request, 'registration/login.html')
 
 
-def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+def register(response):
+    if response.method == 'POST':
+        form = UserCreationForm(response.POST)
         if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
-            login(request, user)
-            return redirect('home')
+            user = form.save()           
+            if response.POST.get('group') == 'current':
+                group = Group.objects.get(name='only user')
+            user.groups.add(group)
+            return redirect("/")
     else:
         form = UserCreationForm()
-    return render(request, 'register.html', {'form': form})
+    return render(response, 'registration/register.html', {'form': form})
 
 def logout_request(request):
     logout(request)
@@ -141,7 +142,7 @@ def create_movie(conn, movie):
     conn.commit()
     return cur.lastrowid
 
-@allowed_users(allowed_roles=['users',
+@allowed_users(allowed_roles=['only user',
                               'creator'])
 def movies(request):
     connection = connect_to_db()
