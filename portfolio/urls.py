@@ -23,7 +23,7 @@ from django.contrib.auth import login, views as auth_views
 APP_NAME = 'portfolio'
 
 urlpatterns = [
-    path('registration/login/', views.login, name='login'),
+    path('registration/login/', views.login_request, name='login'),
     path('registration/register/', views.register, name='register'),
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),

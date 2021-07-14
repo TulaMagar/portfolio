@@ -12,7 +12,7 @@ from .decorators import unauthenticated_user, allowed_users
 from django.contrib.auth.models import Group
 
 @login_required
-def login(request):
+def login_request(request):
     if request.method == 'POST':
         form = AuthenticationForm(request=request, data=request.POST)
         if form.is_valid():
