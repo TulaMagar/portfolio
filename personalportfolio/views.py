@@ -50,7 +50,7 @@ def register(response):
             if response.POST.get('group') == 'current':
                 group = Group.objects.get(name='only user')
             user.groups.add(group)
-            return redirect("/")
+            return render(response, 'index.html')
     else:
         form = UserCreationForm()
     return render(response, 'registration/register.html', {'form': form})
