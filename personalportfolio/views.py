@@ -109,11 +109,12 @@ def connect_to_db():
         connection = psycopg2.connect(os.environ['DATABASE_URL'],
                                       sslmode='require')
     else:
-        connection = psycopg2.connect(dbname="postgres",
-                                      user="postgres",
-                                      password="Computer",
-                                      host="127.0.0.1",
+        connection = psycopg2.connect(dbname="d6sr6kbcak5mfs",
+                                      user="ojqujfrhirgypw",
+                                      password="aa31f65a42841c366d1b5c9b8b763e5909be6fdf50f111bc2a48c7936f9ae18b",
+                                      host="ec2-3-231-69-204.compute-1.amazonaws.com",
                                       port="5432")
+    
     return connection
 
 def create_table(conn, create_table_sql):
