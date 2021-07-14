@@ -22,7 +22,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}")
-                return redirect("/")
+                return render(request, "index.html")
             else:
                 messages.error(request, "Invalid username or password.")
         else:
