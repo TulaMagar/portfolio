@@ -38,7 +38,7 @@ def login(request):
     Creates login view
     Returns: rendered login page
     """
-    return render(request, 'registration/login.html')
+    return render(request, 'index.html')
 
 
 def register(response):
