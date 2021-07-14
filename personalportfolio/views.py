@@ -23,7 +23,7 @@ def login_request(request):
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}")
             return render(request, "index.html")
-            
+
     form = AuthenticationForm()
     return render(request = request,
                     template_name = "login.html",
@@ -35,7 +35,7 @@ def login(request):
     Creates login view
     Returns: rendered login page
     """
-    return render(request, 'index.html')
+    return render(request, 'login.html')
 
 
 def register(response):
