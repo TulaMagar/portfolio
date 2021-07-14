@@ -18,14 +18,15 @@ from django.urls import include, path
 from personalportfolio import views
 from django.conf.urls.static import static
 from django.conf import settings
-from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.decorators import login_required
 
 APP_NAME = 'portfolio'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('registration/login/', auth_views.LoginView.as_view(), name='login'),
+    path('registration/login/', LoginView.as_view(), name='login'),
     path('registration/register/', views.register, name='register'),
+    path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('movie', views.movies, name='movie'),
     path('store', views.store, name='store'),
