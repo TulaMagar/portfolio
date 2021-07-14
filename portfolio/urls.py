@@ -23,9 +23,9 @@ from django.contrib.auth import login, views as auth_views
 APP_NAME = 'portfolio'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('registration/login/', views.login, name='login'),
     path('registration/register/', views.register, name='register'),
+    path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('movie', views.movies, name='movie'),
     path('store', views.store, name='store'),
