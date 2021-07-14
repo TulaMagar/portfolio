@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user, allowed_users
 from django.contrib.auth.models import Group
 
-
+@login_required
 def login(request):
     if request.method == 'POST':
         form = AuthenticationForm(request=request, data=request.POST)
@@ -32,7 +32,6 @@ def login(request):
                     template_name = "login.html",
                     context={"form":form})
 
-@login(login_url='/registration/login/')
 @unauthenticated_user
 def login(request):
     """
