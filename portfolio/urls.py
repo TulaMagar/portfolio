@@ -24,7 +24,7 @@ APP_NAME = 'portfolio'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('registration/login/', auth_views.LoginView.as_view(), name='login'),
+    path('registration/login/', views.login_request, name='login'),
     path('registration/register/', views.register, name='register'),
     path('', views.home, name='home'),
     path('movie', views.movies, name='movie'),
