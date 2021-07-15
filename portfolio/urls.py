@@ -18,18 +18,20 @@ from django.urls import include, path
 from personalportfolio import views
 from django.conf.urls.static import static
 from django.conf import settings
-from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView
 
 APP_NAME = 'portfolio'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('registration/login/', views.login_request, name='login'),
+    path('registration/login/', LoginView.as_view(), name='login'),
     path('registration/register/', views.register, name='register'),
     path('', views.home, name='home'),
     path('movie', views.movies, name='movie'),
     path('store', views.store, name='store'),
     path('logout', views.logout_request, name='logout'),
     path('PhysicalActivity', views.PhysicalActivity, name='PhysicalActivity'),
+    path("upload", views.upload, name="upload"),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

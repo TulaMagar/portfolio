@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user, allowed_users
 from django.contrib.auth.models import Group
 
-@login_required
+@login_required(login_url='/registration/login/')
 def login_request(request):
     if request.method == 'POST':
         form = AuthenticationForm(request=request, data=request.POST)
@@ -46,7 +46,7 @@ def register(response):
             if response.POST.get('group') == 'current':
                 group = Group.objects.get(name='only user')
             user.groups.add(group)
-            return render(response, 'index.html')
+            return redirect("login")
     else:
         form = UserCreationForm()
     return render(response, 'registration/register.html', {'form': form})
@@ -56,8 +56,12 @@ def logout_request(request):
     messages.info(request, "you have successfully logged out.")
     return redirect('login')
 
-
 def home(request):
+    return render(request, "index.html")
+
+
+@allowed_users(allowed_roles=["creator"])
+def upload(request):
     if request.method == 'POST':
         if request.FILES.get('document'):
             file = request.FILES['document']
@@ -92,8 +96,6 @@ def home(request):
                                xls['C'+str(i)].value)
                                
                     create_movie(connection, student)
-                if request.user.is_authenticated():
-                    return render(request, 'index.html')
             return render(request, 'index.html')
     return render(request, 'upload.html')
 

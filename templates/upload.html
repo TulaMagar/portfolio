@@ -39,13 +39,127 @@
         </style>
     </head>
 <body>
-  <div class="w3-container">
-    <div class="w3-bar w3-border w3-light-grey">
-      <a class="w3-bar-item w3-hover-green w3-button" href="{% url 'home' %}"><i class="fa fa-home"></i></a>  
-      <a class="w3-bar-item w3-hover-red" href="{% url 'store' %}">store</a>
-        <a class="w3-bar-item w3-hover-blue">Programming blog</a>
+  <section class="w3-hide-small main-header" style="background-color:#6699cc">
+    {% if request.user.groups.all|first|stringformat:"s" == "creator" %}
+    <div class="w3-bar w3-blue">
+        <a href="{% url 'home' %}">
+            <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+        </a>
+        <a href="{% url 'upload' %}">
+            <button class=" w3-hover-light-blue w3-button w3-bar-item">Upload File</button>
+        </a>
+        <a href="{% url 'store' %}">
+            <button class=" w3-hover-light-blue w3-button w3-bar-item">Store</button>
+        </a>
+        <a href="{% url 'movie' %}">
+            <button class=" w3-hover-light-blue w3-button w3-bar-item">Movie</button>
+        </a>
+        <a href="{% url 'PhysicalActivity' %}">
+            <button class="w3-hover-light-blue w3-button w3-bar-item w3-blue">Physical Activity</button>
+        </a>
+        <div class="w3-dropdown-hover ">
+            <button class="w3-button w3-blue">Menu</button>
+            <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
+                <a href="{% url 'upload' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">blog</button>
+                </a>
+                <a href="{% url 'store' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                </a>
+                <a href="{% url 'home' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
+                </a>
+            </nav>
+        </div>
+        <a href="{% url 'logout' %}">
+            <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
+        </a>
     </div>
-  </div>
+
+    {% else %}
+    <div class="w3-bar w3-blue">
+        <a href="{% url 'home' %}">
+            <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+        </a>
+        <div class="w3-dropdown-hover ">
+            <button class="w3-button w3-blue">Menu</button>
+            <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
+                <a href="{% url 'PhysicalActivity' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Physical Activity</button>
+                </a>
+                <a href="{% url 'PhysicalActivity' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                </a>
+                <a href="{% url 'movie' %}">
+                    <button class=" w3-hover-light-blue w3-button w3-bar-item">Movie</button>
+                </a>
+            </nav>
+        </div>
+        <a href="{% url 'logout' %}">
+            <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
+        </a>
+        {% endif %}
+    </section>
+
+
+
+
+
+
+
+    <section class="w3-show-small w3-hide-medium w3-hide-large main-header" style="background-color:#6699cc">
+        {% if request.user.groups.all|first|stringformat:"s" == "creator" %}
+        <div class="w3-bar w3-blue">
+            <a href="{% url 'home' %}">
+                <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+            </a>
+            <a href="{% url 'store' %}">
+                <button class=" w3-hover-light-blue w3-button w3-bar-item">Store</button>
+            </a>
+            <a href="{% url 'PhysicalActivity' %}">
+                <button class="w3-hover-light-blue w3-button w3-bar-item w3-blue">Physical Activity</button>
+            </a>
+            <div class="w3-dropdown-hover ">
+                <button class="w3-button w3-blue">Menu</button>
+                <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
+                    <a href="{% url 'upload' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">blog</button>
+                    </a>
+                    <a href="{% url 'store' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                    </a>
+                    <a href="{% url 'home' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
+                    </a>
+                </nav>
+            </div>
+            <a href="{% url 'logout' %}">
+                <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
+            </a>
+        </div>
+    
+        {% else %}
+        <div class="w3-bar w3-blue">
+            <a href="{% url 'home' %}">
+                <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+            </a>
+            <div class="w3-dropdown-hover ">
+                <button class="w3-button w3-blue">Menu</button>
+                <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
+                    <a href="{% url 'PhysicalActivity' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">Physical Activity</button>
+                    </a>
+                    <a href="{% url 'PhysicalActivity' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                    </a>
+                </nav>
+            </div>
+            <a href="{% url 'logout' %}">
+                <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
+            </a>
+            {% endif %}
+        </section>
+
 
   <div class="w3-container w3-center">
       {% load static %}
