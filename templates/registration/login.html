@@ -58,17 +58,16 @@
 
 <body>
 
-    <h3>My new portfolio</h3>
-
     {% block content %}
     <div>
+        <h3>My new portfolio</h3>
         <h1>Login</h1>
-<form method="post" class="from-group">
-    {% csrf_token %}
-    {{ form }}<br><br>
-    <button type="submit" class="btn btn-success">Login</button>
-    <p>Don't have an account? Create one: <a href="/registration/register/">here</a></p>
-</form>
+        <form method="post" class="from-group">
+            {% csrf_token %}
+            {{ form }}<br><br>
+            <button type="submit" class="btn btn-success">Login</button>
+            <p>Don't have an account? Create one: <a href="/registration/register/">here</a></p>
+        </form>
 {% endblock %}
 </div>
 </body>
