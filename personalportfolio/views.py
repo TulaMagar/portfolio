@@ -175,3 +175,11 @@ def store(request):
 def PhysicalActivity(request):
 
     return render(request, 'physical_activity.html')
+
+def project(request):
+
+    return render(request, "project.html")
+
+
+def question(request):
+    return render(request, "question.html")

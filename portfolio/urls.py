@@ -33,5 +33,7 @@ urlpatterns = [
     path('logout', views.logout_request, name='logout'),
     path('PhysicalActivity', views.PhysicalActivity, name='PhysicalActivity'),
     path("upload", views.upload, name="upload"),
+    path("project", views.project, name="project"),
+    path("question", views.question, name="question"),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
