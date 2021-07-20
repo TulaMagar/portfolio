@@ -27,14 +27,14 @@ background-size: cover;">
         <a href="{% url 'movie' %}">
             <button class=" w3-hover-light-blue w3-button w3-bar-item">Movie</button>
         </a>
+        <a href="{% url 'PhysicalActivity' %}">
+            <button class="w3-hover-light-blue w3-button w3-bar-item w3-blue">Physical Activity</button>
+        </a>
         <div class="w3-dropdown-hover ">
             <button class="w3-button w3-blue">Menu</button>
             <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
-                <a href="{% url 'PhysicalActivity' %}">
-                    <button class="w3-hover-light-blue w3-button w3-bar-item">Physical Activity</button>
-                </a>
-                <a href="{% url 'project' %}">
-                    <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                <a href="{% url '#' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">blog</button>
                 </a>
                 <a href="{% url 'question' %}">
                     <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
@@ -90,17 +90,19 @@ background-size: cover;">
             <a href="{% url 'store' %}">
                 <button class=" w3-hover-light-blue w3-button w3-bar-item">Store</button>
             </a>
-
+            <a href="{% url 'PhysicalActivity' %}">
+                <button class="w3-hover-light-blue w3-button w3-bar-item w3-blue">Physical Activity</button>
+            </a>
             <div class="w3-dropdown-hover ">
                 <button class="w3-button w3-blue">Menu</button>
                 <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
-                    <a href="{% url 'upload' %}">
-                        <button class="w3-hover-light-blue w3-button w3-bar-item">blog</button>
+                    <a href="{% url 'PhysicalActivity' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">Physical Activity</button>
                     </a>
-                    <a href="{% url 'project' %}">
-                        <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                    <a href="{% url 'movie' %}">
+                        <button class=" w3-hover-light-blue w3-button w3-bar-item">Movie</button>
                     </a>
-                    <a href="{% url 'home' %}">
+                    <a href="{% url 'question' %}">
                         <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
                     </a>
                 </nav>
@@ -121,8 +123,11 @@ background-size: cover;">
                     <a href="{% url 'PhysicalActivity' %}">
                         <button class="w3-hover-light-blue w3-button w3-bar-item">Physical Activity</button>
                     </a>
-                    <a href="{% url 'project' %}">
-                        <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                    <a href="{% url 'movie' %}">
+                        <button class=" w3-hover-light-blue w3-button w3-bar-item">Movie</button>
+                    </a>
+                    <a href="{% url 'question' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
                     </a>
                 </nav>
             </div>
@@ -133,7 +138,7 @@ background-size: cover;">
         </section>
 
         <iframe src=" https://tulamagar.github.io/computingclub.guthub.io/"width="400" height="400">Computing Club</iframe>
-
+        <iframe src=" https://github.com/TulaMagar/Movie-C-"width="400" height="400">Computing Club</iframe>
         
 </body>
 </html>
