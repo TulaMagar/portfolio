@@ -35,5 +35,14 @@ urlpatterns = [
     path("upload", views.upload, name="upload"),
     path("project", views.project, name="project"),
     path("question", views.question, name="question"),
+
+    path('physicalactivity/walk/', views.walk, name='walk'),
+    path('physicalactivity/run/', views.run, name='run'),
+    path('physicalactivity/jogging/', views.jogging, name='jogging'),
+    path('physicalactivity/gym/app/', views.app, name='app'),
+    path("physicalactivity/gym/chess/", views.chess, name="chess"),
+    path("physicalactivity/gym/leg/", views.leg, name="leg"),
+    path("physicalactivity/gym/muscle/", views.muscle, name="muscle"),
+
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

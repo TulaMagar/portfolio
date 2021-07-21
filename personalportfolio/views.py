@@ -183,3 +183,40 @@ def project(request):
 
 def question(request):
     return render(request, "question.html")
+
+
+
+
+# physical activites
+
+def walk(request):
+
+    return render(request, 'physicalactivity/walk.html')
+
+def jogging(request):
+
+    return render(request, "'physicalactivity/jogging.html'")
+
+
+def run(request):
+    return render(request, 'physicalactivity/run.html')
+
+
+# gym folder from physical activites folder
+def app(request):
+    return render(request, 'physicalactivity/gym/app.html')
+
+def chess(request):
+    return render(request, 'physicalactivity/gym/chess.html')
+
+def leg(request):
+    return render(request, 'physicalactivity/gym/leg.html')
+
+def muscle(request):
+    return render(request, 'physicalactivity/gym/muscle.html')
+
+
+
+def chat(request):
+    return render(request, 'chat.html')
+
