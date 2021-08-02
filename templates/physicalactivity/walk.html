@@ -6,9 +6,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            .container {
+                width: 100%;
+                margin: auto;
+                padding: 10px;
+            }
+
+            .one {
+                width: 15%;
+                float: left;
+                overflow-y:scroll;
+            }
+
+            .two {
+                width:50%;
+                margin-left: 5%;
+                float: left;
+
+            }
+            .three {
+                width: 20%;
+                padding: 3px;
+                margin-left: 5%;
+                float: left;
+                border-style: solid;
+                border-color: white;
+            }
+        </style>
     </head>
-<body  style="background-image:linear-gradient(#1e415e 10%, #2b5b84 90%); background-repeat: no-repeat;background-attachment: fixed;  
-background-size: cover;">
+<body>
 
 
 <section class="w3-hide-small main-header">
@@ -135,7 +162,355 @@ background-size: cover;">
             {% endif %}
         </section>
 
-        <p style="text-align: center;"> page coming soon!</p>
+        <h1 style="text-align: center;"> Walking </h1>
+
+        <section class="container w3-hide-small main-header">
+            <div class="one">
+                <a href="{% url 'walk' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">walk</button>
+                </a> </br>
+                <a href="{% url 'run' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Run</button>
+                </a></br>
+                <a href="{% url 'jogging' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Jogging</button>
+                </a></br>
+                <a href="{% url 'app' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">app</button>
+                </a></br>
+                <a href="{% url 'chess' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Chess</button>
+                </a></br>
+                <a href="{% url 'leg' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">leg</button>
+                </a></br>
+                <a href="{% url 'muscle' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">muscle</button>
+                </a>
+            </div>
+            <div class="two"> 
+                <h1> What are the walking benefits? </h1>
+                <p> Walking is a very simple physical activity. Walking will help you to improve health. 
+                    Some of walking benefits are as follow; 
+                    <ul>
+                        <li> 
+                            Weight Loss 
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Physical activity, such as walking, is important for weight control because it helps you burn calories. 
+                                If you add 30 minutes of brisk walking to your daily routine, you could burn about 150 more 
+                                calories a day. Of course, the more you walk and the quicker your pace, the more calories you'll burn.
+
+                                </br></br>
+                                Gaining weight increases your risk of major health problems. People who are overweight or obese (BMI 30 or more) are 
+                                more likely to have heart disease, strokes, diabetes, cancer, and depression.
+                            </p>
+                        </li>
+                        <li> 
+                            Improve Circulation 
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                The systemic circulation provides the functional blood supply to all body tissue. 
+                                It carries oxygen and nutrients to the cells and picks up carbon dioxide and waste products. 
+                                Systemic circulation carries oxygenated blood from the left ventricle, through the arteries, 
+                                to the capillaries in the tissues of the body.
+
+                                </br></br>
+                                Poor circulation can cause pain in the legs, feet, arms, and hands. Cold hands and 
+                                feet may ache or throb, especially as they start to warm and blood flow returns. 
+                                Poor circulation in the legs and arms can also cause these areas to ache, including the calf muscles.
+                            </p>
+
+                         </li>
+                        <li> 
+                            Walking Helps Lower Blood Sugar
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Walking makes your heart stronger. A stronger heart can pump more blood with 
+                                less effort. As a result, the force on your arteries decreases, lowering your blood pressure.
+
+                                </br></br>
+                                Poor circulation can cause pain in the legs, feet, arms, and hands. Cold hands and 
+                                feet may ache or throb, especially as they start to warm and blood flow returns. 
+                                Poor circulation in the legs and arms can also cause these areas to ache, including the calf muscles.
+                            </p>
+                        </li>
+
+                        <li> 
+                            Food Digestion
+                        </br>
+                        <p style="margin-left: 10px;"> 
+                            More research has found that walking helps speed up the time it takes food to move from 
+                            the stomach into the small intestines. This could help improve satiety after eating. 
+                            There's also evidence that links this type of faster digestion with lower rates of 
+                            heartburn and other reflux symptoms
+
+                            </br></br>
+                            Stomach disturbances like gas, bloating, constipation, diarrhea, and heartburn can all be 
+                            signs of an unhealthy gut. A balanced gut will have less difficulty processing food and eliminating waste.
+                        </li>
+                        
+                        <li> 
+                            Burn Calories
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Physical activity, such as walking, is important for maintaining weight because it helps you burn calories. 
+                                If you add 30 minutes of brisk walking to your daily routine, you could burn about 150 more 
+                                calories a day. Of course, the more you walk and the quicker your pace, the more calories you'll burn.
+
+                                </br></br>
+                                Gaining weight increases your risk of major health problems. People who are overweight or obese (BMI 30 or more) are 
+                                more likely to have heart disease, strokes, diabetes, cancer, and depression.
+                            </p>
+                        </li>
+                        <li> 
+                            Improves Mental Health
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Walking improves self-perception and self-esteem, mood and sleep quality, and it reduces stress, 
+                                anxiety and fatigue. Physically active people have up to a 30% reduced risk of becoming depressed, 
+                                and staying active helps those who are depressed recover
+
+                                </br></br>
+                                Poor mental health most likely have mood changes and unhappy. 
+                            </p>
+                        </li>
+                        <li> 
+                            Boosts Immunity
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Walking briskly and regularly can also help protect you from getting a cold, the flu, or other 
+                                immune-related illnesses. That's because physical exercise like walking increases the amount of 
+                                white blood cells circulating in your blood. These cells fight infection and other diseases 
+                                as part of the body's immune system
+
+                                </br></br>
+                                People with a weak immune system have a higher risk of experiencing frequent infections and 
+                                severe symptoms. They may be more prone to pneumonia and other conditions. Bacteria and viruses, 
+                                including the virus that causes the infection COVID-19, can have a devastating effect on a 
+                                person with a compromised immune system. 
+                            </p>
+                        </li>
+                        <li> 
+                            Reduces Joint Pain
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                You may worry that a walk will put extra pressure on your joints and make the pain worse. 
+                                But it has the opposite effect. Walking sends more blood and nutrients to your knee joints. 
+                                This helps them feel better.
+                                </br></br>
+                                Joint pain is a physical discomfort where two or more bones meet to form a joint, ranging from mild to disabling.
+                            </p>
+                        </li>
+                        <li> 
+                            Bone Strength 
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Bone is living tissue and becomes stronger with exercise. Walking involves your feet and legs 
+                                supporting your weight so that your bones have to work harder and this makes them stronger.
+                                </br></br>
+                                A person may have low bone mass at any age but not develop osteoporosis. However, 
+                                if a person has low bone mass and continues to lose bone density, this may lead to osteoporosis. 
+                                A combination of low bone mass and a risk factor for fracture may increase your risk for broken bones, too.
+                            </p>
+                        </li>
+                        <li> 
+                            Improves Sleep
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                For example, being exposed to natural light by walking outside in the morning helps entrain 
+                                a strong circadian rhythm, which promotes healthy sleep. Exercise is also associated with stress 
+                                reduction and physical well-being, both of which could be pathways to sleeping better.
+                                </br></br>
+                                Some of the most serious potential problems associated with chronic sleep deprivation are 
+                                high blood pressure, diabetes, heart attack, heart failure or stroke. Other potential problems 
+                                include obesity, depression, impairment in immunity and lower sex drive. Chronic sleep deprivation can even affect your appearance.
+                            </p>
+                        </li>
+                        <li> 
+                            Creativity Thinker
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Stanford researchers found that walking boosts creative inspiration. They examined creativity levels 
+                                of people while they walked versus while they sat. A person's creative output increased by an average of 
+                                60 percent when walking.
+                                </br></br>
+                                Without creativity, there is no innovation.
+                            </p>
+                         </li>
+                    </ul>
+                </p> 
+            </div>
+            <div class="three">
+                <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            </div>
+        </section>
+
+
+        <!-- mobile size and no left side menu of physical activities-->
+        <section class="w3-show-small w3-hide-medium w3-hide-large main-header">
+            <div> 
+                <h1> What are the walking benefits? </h1>
+                <p> Walking is a very simple physical activity. Walking will help you to improve health. 
+                    Some of walking benefits are as follow; 
+                    <ul>
+                        <li> 
+                            Weight Loss 
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Physical activity, such as walking, is important for weight control because it helps you burn calories. 
+                                If you add 30 minutes of brisk walking to your daily routine, you could burn about 150 more 
+                                calories a day. Of course, the more you walk and the quicker your pace, the more calories you'll burn.
+
+                                </br></br>
+                                Gaining weight increases your risk of major health problems. People who are overweight or obese (BMI 30 or more) are 
+                                more likely to have heart disease, strokes, diabetes, cancer, and depression.
+                            </p>
+                        </li>
+                        <li> 
+                            Improve Circulation 
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                The systemic circulation provides the functional blood supply to all body tissue. 
+                                It carries oxygen and nutrients to the cells and picks up carbon dioxide and waste products. 
+                                Systemic circulation carries oxygenated blood from the left ventricle, through the arteries, 
+                                to the capillaries in the tissues of the body.
+
+                                </br></br>
+                                Poor circulation can cause pain in the legs, feet, arms, and hands. Cold hands and 
+                                feet may ache or throb, especially as they start to warm and blood flow returns. 
+                                Poor circulation in the legs and arms can also cause these areas to ache, including the calf muscles.
+                            </p>
+
+                         </li>
+                        <li> 
+                            Walking Helps Lower Blood Sugar
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Walking makes your heart stronger. A stronger heart can pump more blood with 
+                                less effort. As a result, the force on your arteries decreases, lowering your blood pressure.
+
+                                </br></br>
+                                Poor circulation can cause pain in the legs, feet, arms, and hands. Cold hands and 
+                                feet may ache or throb, especially as they start to warm and blood flow returns. 
+                                Poor circulation in the legs and arms can also cause these areas to ache, including the calf muscles.
+                            </p>
+                        </li>
+
+                        <li> 
+                            Food Digestion
+                        </br>
+                        <p style="margin-left: 10px;"> 
+                            More research has found that walking helps speed up the time it takes food to move from 
+                            the stomach into the small intestines. This could help improve satiety after eating. 
+                            There's also evidence that links this type of faster digestion with lower rates of 
+                            heartburn and other reflux symptoms
+
+                            </br></br>
+                            Stomach disturbances like gas, bloating, constipation, diarrhea, and heartburn can all be 
+                            signs of an unhealthy gut. A balanced gut will have less difficulty processing food and eliminating waste.
+                        </li>
+                        
+                        <li> 
+                            Burn Calories
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Physical activity, such as walking, is important for maintaining weight because it helps you burn calories. 
+                                If you add 30 minutes of brisk walking to your daily routine, you could burn about 150 more 
+                                calories a day. Of course, the more you walk and the quicker your pace, the more calories you'll burn.
+
+                                </br></br>
+                                Gaining weight increases your risk of major health problems. People who are overweight or obese (BMI 30 or more) are 
+                                more likely to have heart disease, strokes, diabetes, cancer, and depression.
+                            </p>
+                        </li>
+                        <li> 
+                            Improves Mental Health
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Walking improves self-perception and self-esteem, mood and sleep quality, and it reduces stress, 
+                                anxiety and fatigue. Physically active people have up to a 30% reduced risk of becoming depressed, 
+                                and staying active helps those who are depressed recover
+
+                                </br></br>
+                                Poor mental health most likely have mood changes and unhappy. 
+                            </p>
+                        </li>
+                        <li> 
+                            Boosts Immunity
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Walking briskly and regularly can also help protect you from getting a cold, the flu, or other 
+                                immune-related illnesses. That's because physical exercise like walking increases the amount of 
+                                white blood cells circulating in your blood. These cells fight infection and other diseases 
+                                as part of the body's immune system
+
+                                </br></br>
+                                People with a weak immune system have a higher risk of experiencing frequent infections and 
+                                severe symptoms. They may be more prone to pneumonia and other conditions. Bacteria and viruses, 
+                                including the virus that causes the infection COVID-19, can have a devastating effect on a 
+                                person with a compromised immune system. 
+                            </p>
+                        </li>
+                        <li> 
+                            Reduces Joint Pain
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                You may worry that a walk will put extra pressure on your joints and make the pain worse. 
+                                But it has the opposite effect. Walking sends more blood and nutrients to your knee joints. 
+                                This helps them feel better.
+                                </br></br>
+                                Joint pain is a physical discomfort where two or more bones meet to form a joint, ranging from mild to disabling.
+                            </p>
+                        </li>
+                        <li> 
+                            Bone Strength 
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Bone is living tissue and becomes stronger with exercise. Walking involves your feet and legs 
+                                supporting your weight so that your bones have to work harder and this makes them stronger.
+                                </br></br>
+                                A person may have low bone mass at any age but not develop osteoporosis. However, 
+                                if a person has low bone mass and continues to lose bone density, this may lead to osteoporosis. 
+                                A combination of low bone mass and a risk factor for fracture may increase your risk for broken bones, too.
+                            </p>
+                        </li>
+                        <li> 
+                            Improves Sleep
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                For example, being exposed to natural light by walking outside in the morning helps entrain 
+                                a strong circadian rhythm, which promotes healthy sleep. Exercise is also associated with stress 
+                                reduction and physical well-being, both of which could be pathways to sleeping better.
+                                </br></br>
+                                Some of the most serious potential problems associated with chronic sleep deprivation are 
+                                high blood pressure, diabetes, heart attack, heart failure or stroke. Other potential problems 
+                                include obesity, depression, impairment in immunity and lower sex drive. Chronic sleep deprivation can even affect your appearance.
+                            </p>
+                        </li>
+                        <li> 
+                            Creativity Thinker
+                            </br>
+                            <p style="margin-left: 10px;"> 
+                                Stanford researchers found that walking boosts creative inspiration. They examined creativity levels 
+                                of people while they walked versus while they sat. A person's creative output increased by an average of 
+                                60 percent when walking.
+                                </br></br>
+                                Without creativity, there is no innovation.
+                            </p>
+                            </br></br>
+                            <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                         </li>
+                    </ul>
+                </p>
+            </div>
+        </section>
 
         
 </body>

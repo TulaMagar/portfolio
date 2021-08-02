@@ -168,7 +168,7 @@
                 {% csrf_token %}
                 {{form.as_p}}
                 <label>Image</label>
-                <input type="file" name="image" value="{{image.0}}" class="file-upload">
+                <input type="text" name="image" value="{{image.0}}"><br>
                 <label>Name:</label>
                 <input type="text" name="name" value="{{name.1}}"><br>
                 <label>url:</label>
