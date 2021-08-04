@@ -220,3 +220,9 @@ def muscle(request):
 def chat(request):
     return render(request, 'chat.html')
 
+
+def programming(request):
+    return render(request, 'programming.html')
+
+def python(request):
+    return render(request, 'python/python.html')

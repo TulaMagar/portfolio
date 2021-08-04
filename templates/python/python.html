@@ -1,0 +1,347 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>python</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <style>
+            .container {
+                width: 100%;
+                margin: auto;
+                padding: 10px;
+            }
+
+            .one {
+                width: 15%;
+                float: left;
+                overflow-y:scroll;
+            }
+
+            .two {
+                width:50%;
+                margin-left: 5%;
+                float: left;
+
+            }
+            .three {
+                width: 20%;
+                padding: 3px;
+                margin-left: 5%;
+                float: left;
+                border-style: solid;
+                border-color: white;
+            }
+        </style>
+    </head>
+<body>
+
+
+<section class="w3-hide-small main-header">
+    <h1 class="w3-center w3-light-blue"> <i class="fa fa-heart"></i> Welcome To Tula Magar portfolio <i class="fa fa-heart"></i> : {{user.username}} </h1>
+    {% if request.user.groups.all|first|stringformat:"s" == "creator" %}
+    <div class="w3-bar w3-blue">
+        <a href="{% url 'home' %}">
+            <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+        </a>
+        <a href="{% url 'upload' %}">
+            <button class=" w3-hover-light-blue w3-button w3-bar-item">Upload File</button>
+        </a>
+        <a href="{% url 'store' %}">
+            <button class=" w3-hover-light-blue w3-button w3-bar-item">Store</button>
+        </a>
+        <a href="{% url 'movie' %}">
+            <button class=" w3-hover-light-blue w3-button w3-bar-item">Movie</button>
+        </a>
+        <div class="w3-dropdown-hover ">
+            <button class="w3-button w3-blue">Menu</button>
+            <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
+                <a href="{% url 'movie' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Movie</button>
+                </a>
+                <a href="{% url 'project' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                </a>
+                <a href="{% url 'question' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
+                </a>
+                <a href="{% url 'programming' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">programming</button>
+                </a>
+            </nav>
+        </div>
+        <a href="{% url 'logout' %}">
+            <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
+        </a>
+    </div>
+
+    {% else %}
+    <div class="w3-bar w3-blue">
+        <a href="{% url 'home' %}">
+            <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+        </a>
+        <div class="w3-dropdown-hover ">
+            <button class="w3-button w3-blue">Menu</button>
+            <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
+                <a href="{% url 'movie' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Movie</button>
+                </a>
+                <a href="{% url 'project' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                </a>
+                <a href="{% url 'question' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
+                </a>
+                <a href="{% url 'programming' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">programming</button>
+                </a>
+            </nav>
+        </div>
+        <a href="{% url 'logout' %}">
+            <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
+        </a>
+        {% endif %}
+    </section>
+
+
+
+
+
+
+
+    <section class="w3-show-small w3-hide-medium w3-hide-large main-header">
+        <h1 class="w3-center w3-light-blue"> <i class="fa fa-heart"></i> Welcome To Tula Magar portfolio <i class="fa fa-heart"></i> : {{user.username}} </h1>
+        {% if request.user.groups.all|first|stringformat:"s" == "creator" %}
+        <div class="w3-bar w3-blue">
+            <a href="{% url 'home' %}">
+                <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+            </a>
+            <a href="{% url 'upload' %}">
+                <button class=" w3-hover-light-blue w3-button w3-bar-item">Upload File</button>
+            </a>
+            <a href="{% url 'store' %}">
+                <button class=" w3-hover-light-blue w3-button w3-bar-item">Store</button>
+            </a>
+
+            <div class="w3-dropdown-hover ">
+                <button class="w3-button w3-blue">Menu</button>
+                <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
+                    <a href="{% url 'movie' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">Movie</button>
+                    </a>
+                    <a href="{% url 'project' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                    </a>
+                    <a href="{% url 'question' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
+                    </a>
+                    <a href="{% url 'programming' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">programming</button>
+                    </a>
+                </nav>
+            </div>
+            <a href="{% url 'logout' %}">
+                <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
+            </a>
+        </div>
+    
+        {% else %}
+        <div class="w3-bar w3-blue">
+            <a href="{% url 'home' %}">
+                <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+            </a>
+            <div class="w3-dropdown-hover ">
+                <button class="w3-button w3-blue">Menu</button>
+                <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
+                    <a href="{% url 'movie' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">Movie</button>
+                    </a>
+                    <a href="{% url 'project' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                    </a>
+                    <a href="{% url 'question' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
+                    </a>
+                    <a href="{% url 'programming' %}">
+                        <button class="w3-hover-light-blue w3-button w3-bar-item">programming</button>
+                    </a>
+                </nav>
+            </div>
+            <a href="{% url 'logout' %}">
+                <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
+            </a>
+            {% endif %}
+        </section>
+
+
+
+
+        <h1 style="text-align: center;"> What is Python? </h1>
+
+        <section class="container w3-hide-small main-header">
+            <div class="one">
+                <a href="{% url 'python' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">Introduction</button>
+                </a> </br>
+                <a href="{% url 'run' %}">
+                    <button class="w3-hover-light-blue w3-button w3-bar-item">syntax</button>
+                </a></br>
+            </div>
+            <div class="two"> 
+                <p> Python is a general-purpose, versatile and popular programming language. Python is a high-level 
+                    language but must be interpreted into machine code (binary) before it can be executed. 
+                    Programs written in a high-level language take less time to write, they are shorter and 
+                    easier to read, and they are more likely to be correct. Python was created by Guido van 
+                    Rossum, and released in 1991. Python is a very popular open-source software development 
+                    language. It is used for:
+                </p> 
+                <ul>
+                    <li>Web Development (server-side)</li>
+                    <p style="margin-left: 17px;"> 
+                        Python has so many webs framework. The most popular Python web frameworks are Django and flask. 
+                        There are other Python web frameworks such as Hub, Bottle, Web2py, Cherrypy, Pyramid, Falcon and, etc. 
+                    </p>
+
+                    <li>Data Analysis</li>
+                    <p style="margin-left: 17px;">
+                        Python is a dynamic language that supports both structured programming as well as to object-oriented 
+                        programming. Unlike C and Java, Python focuses on readability. Python is considered the easiest 
+                        language to learn. Hence it attracts lots of developers and also has a very large developer community 
+                        which in turn brings out large support to everyone. Also, Python has a very large library, which eases 
+                        lots of tasks.
+                    </p>
+
+                    <li>Software Development</li>
+                    <p style="margin-left: 17px;">
+                        Platforms like Google, Instagram, Spotify, and Reddit all use Python.  Python has always favored the
+                         developers that offer enhanced process control capabilities. It is able to develop complex multi-protocol 
+                         network applications while also maintaining simple and straightforward syntax. 
+                    </p>
+                    <li>System Scripting</li>
+                    <p style="margin-left: 17px;">
+                        Python allows communication with the database systems. It can also read and modify files.
+                    </p>
+                </ul>
+                <h1 style="text-align: center;"> Why Python? </h1>
+                <p>
+                    <li  style="margin-left: 10px;">
+                        Developers can build programs in fewer lines of code.
+                    </li>
+                    <li  style="margin-left: 10px;">
+                        Python supports a procedural way, an object-oriented way, or a functional way.
+                    </li>
+                    <li  style="margin-left: 10px;">
+                        Python works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc).
+                    </li>
+                    <li  style="margin-left: 10px;">
+                        Python is known as an interpreter system. 
+                        As soon as the code is written it will be executed. This means that prototyping can be very quick.
+                    </li>
+                    <li  style="margin-left: 10px;">
+                        Python has a simple syntax similar to the English language.
+                    </li>
+                </p>
+
+                <h1 style="text-align: center;"> Python Syntax </h1>
+                <li  style="margin-left: 10px;">
+                    Python is very readable.
+                </li>
+                <li  style="margin-left: 10px;">
+                    Python doesn't need semicolons or parentheses to complete a command.
+                </li>
+                <li  style="margin-left: 10px;">
+                    Python relies on indentation, using whitespace, to define scope; such 
+                    as the scope of loops, functions, and classes. Other programming languages often use curly brackets for this purpose
+                </li>
+            </div>
+            <div class="three">
+                <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            </div>
+        </section>
+
+
+        <!-- mobile size and no left side menu of physical activities-->
+        <section class="w3-show-small w3-hide-medium w3-hide-large main-header">
+            <div> 
+                <p> Python is a general-purpose, versatile and popular programming language. Python is a high-level 
+                    language but must be interpreted into machine code (binary) before it can be executed. 
+                    Programs written in a high-level language take less time to write, they are shorter and 
+                    easier to read, and they are more likely to be correct. Python was created by Guido van 
+                    Rossum, and released in 1991. Python is a very popular open-source software development 
+                    language. It is used for:
+                </p> 
+                <ul>
+                    <li>Web Development (server-side)</li>
+                    <p style="margin-left: 14px;"> 
+                        Python has so many webs framework. The most popular Python web frameworks are Django and flask. 
+                        There are other Python web frameworks such as Hub, Bottle, Web2py, Cherrypy, Pyramid, Falcon and, etc. 
+                    </p>
+
+                    <li>Data Analysis</li>
+                    <p style="margin-left: 14px;">
+                        Python is a dynamic language that supports both structured programming as well as to object-oriented 
+                        programming. Unlike C and Java, Python focuses on readability. Python is considered the easiest 
+                        language to learn. Hence it attracts lots of developers and also has a very large developer community 
+                        which in turn brings out large support to everyone. Also, Python has a very large library, which eases 
+                        lots of tasks.
+                    </p>
+
+                    <li>Software Development</li>
+                    <p style="margin-left: 14px;">
+                        Platforms like Google, Instagram, Spotify, and Reddit all use Python.  Python has always favored the
+                         developers that offer enhanced process control capabilities. It is able to develop complex multi-protocol 
+                         network applications while also maintaining simple and straightforward syntax. 
+                    </p>
+                    <li>System Scripting</li>
+                    <p style="margin-left: 14px;">
+                        Python allows communication with the database systems. It can also read and modify files.
+                    </p>
+                </ul>
+                <h1 style="text-align: center;"> Why Python? </h1>
+                <p>
+                    <li style="margin-left: 15px;" >
+                        Developers can build programs in fewer lines of code.
+                    </li>
+                    <li  style="margin-left: 15px;">
+                        Python supports a procedural way, an object-oriented way, or a functional way.
+                    </li>
+                    <li  style="margin-left: 15px;">
+                        Python works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc).
+                    </li>
+                    <li  style="margin-left: 15px;">
+                        Python is known as an interpreter system. 
+                        As soon as the code is written it will be executed. This means that prototyping can be very quick.
+                    </li>
+                    <li  style="margin-left: 15px;">
+                        Python has a simple syntax similar to the English language.
+                    </li>
+                </p>
+
+                <h1 style="text-align: center;"> Python Syntax </h1>
+                <li  style="margin-left: 15px;">
+                    Python is very readable.
+                </li>
+                <li  style="margin-left: 15px;">
+                    Python doesn't need semicolons or parentheses to complete a command.
+                </li>
+                <li  style="margin-left: 15px;">
+                    Python relies on indentation, using whitespace, to define scope; such 
+                    as the scope of loops, functions, and classes. Other programming languages often use curly brackets for this purpose
+                </li>
+                <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            </div>
+        </section>
+
+
+
+        
+</body>
+</html>
