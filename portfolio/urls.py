@@ -37,6 +37,7 @@ urlpatterns = [
     path("question", views.question, name="question"),
     path("programming", views.programming, name="programming"),
     path("python/python/", views.python, name="python"),
+    path("python/syntax/", views.syntax, name="pythonsyntax"),
     path('physicalactivity/walk/', views.walk, name='walk'),
     path('physicalactivity/run/', views.run, name='run'),
     path('physicalactivity/jogging/', views.jogging, name='jogging'),

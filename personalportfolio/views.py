@@ -226,3 +226,6 @@ def programming(request):
 
 def python(request):
     return render(request, 'python/python.html')
+
+def syntax(request):
+    return render(request, 'python/syntax.html')

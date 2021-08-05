@@ -41,7 +41,7 @@ background-size: cover;">
 
 
 <section class="w3-hide-small main-header">
-    <h1 class="w3-center w3-light-blue"> <i class="fa fa-heart"></i> Welcome To Tula Magar portfolio <i class="fa fa-heart"></i> : {{user.username}} </h1>
+    <h1 class="w3-center w3-light-blue"> <i class="fa fa-heart"></i> Welcome To Portfolio Programming Web <i class="fa fa-heart"></i> : {{user.username}} </h1>
     {% if request.user.groups.all|first|stringformat:"s" == "creator" %}
     <div class="w3-bar w3-blue">
         <a href="{% url 'home' %}">
@@ -113,7 +113,7 @@ background-size: cover;">
 
 
     <section class="w3-show-small w3-hide-medium w3-hide-large main-header">
-        <h1 class="w3-center w3-light-blue"> <i class="fa fa-heart"></i> Welcome To Tula Magar portfolio <i class="fa fa-heart"></i> : {{user.username}} </h1>
+        <h1 class="w3-center w3-light-blue"> <i class="fa fa-heart"></i> Welcome To Portfolio Programming Web <i class="fa fa-heart"></i> : {{user.username}} </h1>
         {% if request.user.groups.all|first|stringformat:"s" == "creator" %}
         <div class="w3-bar w3-blue">
             <a href="{% url 'home' %}">
