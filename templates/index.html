@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
         <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
 <body  style="background-image:linear-gradient(#1e415e 10%, #2b5b84 90%); background-repeat: no-repeat;background-attachment: fixed;  
@@ -160,8 +161,66 @@ background-size: cover;">
             </a>
             {% endif %}
         </section>
+        
+        <img src="#" id="slide" alt="ft" width="100%"/>
+        <script>
+            function show(){
+                var x = document.getElementById("showw");
+                if (x.style.display === "none")
+                {
+                x.style.display = "block";
+                //x.style.class="w3-dropdown-hover"
+                // document.getElementById("Close").innerHTML = "Close";
+                x.style.width = "100%";
+                }
+                else{
+                x.style.display = "none";
+                }
+            }
+            function expand(number){
+                var y = event.target.firstElementChild;
+                if(y.style.display==="none")
+                {
+                y.style.display = "block";
+
+                }
+                else{
+                y.style.display = "none";
+                }
+            }
+
+            var images=["computerclubimage.jpg","Computing-feat.jpg", "computingimage.jpg","shutterstock.jpg"]
+            automatic();
+            var count =0;
+            function automatic(){
+                var heightt = screen.height - 200; 
+                
+                if(count < images.length-1 || count < 0){
+                    ++count;
+                    document.getElementById('slide').src = "static/app/"+images[count];
+                    document.getElementById("slide").height = heightt;
+                    
+                }
+                else if(typeof count == "undefined")
+                {
+                    document.getElementById('slide').src = "static/app/"+images[0];
+                    document.getElementById("slide").height = heightt;
+                    
+                }
+                else if (count + 2 >= images.length){
+                    count=0;
+                    document.getElementById('slide').src = "static/app/"+images[0];
+                    document.getElementById("slide").height = heightt;
 
 
+                }
+                else{
+                    ++count;
+                }
+                
+            }
+            setInterval(automatic, 6000);
+        </script>
 <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 </body>

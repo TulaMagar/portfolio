@@ -227,5 +227,11 @@ def programming(request):
 def python(request):
     return render(request, 'python/python.html')
 
-def syntax(request):
+def pythonsyntax(request):
     return render(request, 'python/syntax.html')
+
+def pythoncomment(request):
+    return render(request, 'python/comment.html')
+
+def pythonvariable(request):
+    return render(request, 'python/variable.html')
