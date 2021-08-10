@@ -195,7 +195,7 @@ def walk(request):
 
 def jogging(request):
 
-    return render(request, "'physicalactivity/jogging.html'")
+    return render(request, 'physicalactivity/jogging.html')
 
 
 def run(request):
