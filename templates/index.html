@@ -151,6 +151,7 @@
          </a>
          {% endif %}
       </section>
+     
       <img src="#" id="slide" alt="slides image not found" width="100%"/>
       <script>
          function show(){
@@ -184,7 +185,7 @@
              
              if(count < images.length-1 || count < 0){
                  ++count;
-                 document.getElementById('slide').src = "static/app/"+images[count];
+                 document.getElementById('slide').src = "static/app/"+images[count]; 
                  document.getElementById("slide").height = heightt;
                  
              }
