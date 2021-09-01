@@ -152,7 +152,7 @@
          {% endif %}
       </section>
      
-      <img src="#" id="slide" alt="slides image not found" width="100%"/>
+      <img src="{% static '#' %}" id="slide" alt="slides image not found" width="100%"/>
       <script>
          function show(){
              var x = document.getElementById("showw");
@@ -185,19 +185,19 @@
              
              if(count < images.length-1 || count < 0){
                  ++count;
-                 document.getElementById('slide').src = "../static/app/"+images[count]; 
+                 document.getElementById('slide').src = "static/app/"+images[count]; 
                  document.getElementById("slide").height = heightt;
                  
              }
              else if(typeof count == "undefined")
              {
-                 document.getElementById('slide').src = "../static/app/"+images[0];
+                 document.getElementById('slide').src = "static/app/"+images[0];
                  document.getElementById("slide").height = heightt;
                  
              }
              else if (count + 2 >= images.length){
                  count=0;
-                 document.getElementById('slide').src = "../static/app/"+images[0];
+                 document.getElementById('slide').src = "static/app/"+images[0];
                  document.getElementById("slide").height = heightt;
          
          
