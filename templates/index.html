@@ -1,5 +1,3 @@
-
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -12,32 +10,66 @@
    </head>
    <body>
       <section class="w3-hide-small main-header">
-         <h1 class="w3-center w3-light-blue"> <i class="fa fa-heart"></i> Welcome To Portfolio Programming Web <i class="fa fa-heart"></i> : {{user.username}} </h1>
          {% if request.user.groups.all|first|stringformat:"s" == "creator" %}
          <div class="w3-bar w3-blue">
+            <div style="text-align: left;">
+               <button class="w3-hover-light-blue w3-button w3-bar-item"> <i class="fa fa-heart"></i> Welcome To Portfolio Programming Web <i class="fa fa-heart"></i> : {{user.username}} </button>
+            </div>
+
+            <div style="text-align: right;">
+               <a href="{% url 'home' %}">
+               <button style="margin-left: 30px;" class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+               <a href="{% url 'upload' %}">
+               <button class=" w3-hover-light-blue w3-button w3-bar-item">Upload File</button>
+               </a>
+               <a href="{% url 'store' %}">
+               <button class=" w3-hover-light-blue w3-button w3-bar-item">Store</button>
+               </a>
+               <a href="{% url 'movie' %}">
+               <button class=" w3-hover-light-blue w3-button w3-bar-item">Movie</button>
+               </a>
+               <a href="{% url 'PhysicalActivity' %}">
+               <button class="w3-hover-light-blue w3-button w3-bar-item w3-blue">Physical Activity</button>
+               </a>
+               <div class="w3-dropdown-hover ">
+                  <button class="w3-button w3-blue">Menu</button>
+                  <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
+                     <a href="{% url 'home' %}">
+                     <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+                     </a>
+                     <a href="{% url 'project' %}">
+                     <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                     </a>
+                     <a href="{% url 'question' %}">
+                     <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
+                     </a>
+                     <a href="{% url 'programming' %}">
+                     <button class="w3-hover-light-blue w3-button w3-bar-item">programming</button>
+                     </a>
+                  </nav>
+               </div>
+               <a href="{% url 'logout' %}">
+               <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
+               </a>
+            </div>
+         </div>
+         {% else %}
+         <div class="w3-bar w3-blue">
+            <button class="w3-hover-light-blue w3-button w3-bar-item"> <i class="fa fa-heart"></i> Welcome To Portfolio Programming Web <i class="fa fa-heart"></i> : {{user.username}} </button>
             <a href="{% url 'home' %}">
-            <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
-            </a>
-            <a href="{% url 'upload' %}">
-            <button class=" w3-hover-light-blue w3-button w3-bar-item">Upload File</button>
-            </a>
-            <a href="{% url 'store' %}">
-            <button class=" w3-hover-light-blue w3-button w3-bar-item">Store</button>
-            </a>
-            <a href="{% url 'movie' %}">
-            <button class=" w3-hover-light-blue w3-button w3-bar-item">Movie</button>
-            </a>
-            <a href="{% url 'PhysicalActivity' %}">
-            <button class="w3-hover-light-blue w3-button w3-bar-item w3-blue">Physical Activity</button>
+            <button style="margin-left: 30px;" class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
             </a>
             <div class="w3-dropdown-hover ">
                <button class="w3-button w3-blue">Menu</button>
                <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
-                  <a href="{% url 'home' %}">
-                  <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+                  <a href="{% url 'PhysicalActivity' %}">
+                  <button class="w3-hover-light-blue w3-button w3-bar-item">Physical Activity</button>
                   </a>
                   <a href="{% url 'project' %}">
                   <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                  </a>
+                  <a href="{% url 'movie' %}">
+                  <button class=" w3-hover-light-blue w3-button w3-bar-item">Movie</button>
                   </a>
                   <a href="{% url 'question' %}">
                   <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
@@ -46,35 +78,6 @@
                   <button class="w3-hover-light-blue w3-button w3-bar-item">programming</button>
                   </a>
                </nav>
-            </div>
-            <a href="{% url 'logout' %}">
-            <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
-            </a>
-         </div>
-         {% else %}
-         <div class="w3-bar w3-blue">
-         <a href="{% url 'home' %}">
-         <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
-         </a>
-         <div class="w3-dropdown-hover ">
-            <button class="w3-button w3-blue">Menu</button>
-            <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
-               <a href="{% url 'PhysicalActivity' %}">
-               <button class="w3-hover-light-blue w3-button w3-bar-item">Physical Activity</button>
-               </a>
-               <a href="{% url 'project' %}">
-               <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
-               </a>
-               <a href="{% url 'movie' %}">
-               <button class=" w3-hover-light-blue w3-button w3-bar-item">Movie</button>
-               </a>
-               <a href="{% url 'question' %}">
-               <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
-               </a>
-               <a href="{% url 'programming' %}">
-               <button class="w3-hover-light-blue w3-button w3-bar-item">programming</button>
-               </a>
-            </nav>
          </div>
          <a href="{% url 'logout' %}">
          <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
@@ -82,11 +85,11 @@
          {% endif %}
       </section>
       <section class="w3-show-small w3-hide-medium w3-hide-large main-header">
-         <h1 class="w3-center w3-light-blue"> <i class="fa fa-heart"></i> Welcome To Portfolio Programming Web <i class="fa fa-heart"></i> : {{user.username}} </h1>
          {% if request.user.groups.all|first|stringformat:"s" == "creator" %}
          <div class="w3-bar w3-blue">
+            <button class="w3-hover-light-blue w3-button w3-bar-item"> <i class="fa fa-heart"></i> Welcome To Portfolio Programming Web <i class="fa fa-heart"></i> : {{user.username}} </button>
             <a href="{% url 'home' %}">
-            <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+            <button style="margin-left: 30px;" class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
             </a>
             <a href="{% url 'upload' %}">
             <button class=" w3-hover-light-blue w3-button w3-bar-item">Upload File</button>
@@ -123,32 +126,33 @@
          </div>
          {% else %}
          <div class="w3-bar w3-blue">
-         <a href="{% url 'home' %}">
-         <button class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
-         </a>
-         <div class="w3-dropdown-hover ">
-            <button class="w3-button w3-blue">Menu</button>
-            <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
-               <a href="{% url 'PhysicalActivity' %}">
-               <button class="w3-hover-light-blue w3-button w3-bar-item">Physical Activity</button>
-               </a>
-               <a href="{% url 'project' %}">
-               <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
-               </a>
-               <a href="{% url 'movie' %}">
-               <button class=" w3-hover-light-blue w3-button w3-bar-item">Movie</button>
-               </a>
-               <a href="{% url 'question' %}">
-               <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
-               </a>
-               <a href="{% url 'programming' %}">
-               <button class="w3-hover-light-blue w3-button w3-bar-item">programming</button>
-               </a>
-            </nav>
-         </div>
-         <a href="{% url 'logout' %}">
-         <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
-         </a>
+            <button class="w3-hover-light-blue w3-button w3-bar-item"> <i class="fa fa-heart"></i> Welcome To Portfolio Programming Web <i class="fa fa-heart"></i> : {{user.username}} </button>
+            <a href="{% url 'home' %}">
+            <button style="margin-left: 30px;" class="w3-hover-light-blue w3-button w3-bar-item">Home</button>
+            </a>
+            <div class="w3-dropdown-hover ">
+               <button class="w3-button w3-blue">Menu</button>
+               <nav class="w3-blue w3-dropdown-content w3-bar-block w3-border">
+                  <a href="{% url 'PhysicalActivity' %}">
+                  <button class="w3-hover-light-blue w3-button w3-bar-item">Physical Activity</button>
+                  </a>
+                  <a href="{% url 'project' %}">
+                  <button class="w3-hover-light-blue w3-button w3-bar-item">Projects</button>
+                  </a>
+                  <a href="{% url 'movie' %}">
+                  <button class=" w3-hover-light-blue w3-button w3-bar-item">Movie</button>
+                  </a>
+                  <a href="{% url 'question' %}">
+                  <button class="w3-hover-light-blue w3-button w3-bar-item">Question</button>
+                  </a>
+                  <a href="{% url 'programming' %}">
+                  <button class="w3-hover-light-blue w3-button w3-bar-item">programming</button>
+                  </a>
+               </nav>
+            </div>
+            <a href="{% url 'logout' %}">
+            <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
+            </a>
          {% endif %}
       </section>
      
@@ -181,7 +185,7 @@
          automatic();
          var count =0;
          function automatic(){
-             var heightt = screen.height - 200; 
+             var heightt = screen.height - 400; 
              
              if(count < images.length-1 || count < 0){
                  ++count;
