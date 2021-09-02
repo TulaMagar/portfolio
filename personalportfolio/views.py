@@ -10,6 +10,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user, allowed_users
 from django.contrib.auth.models import Group
+from django.core.mail import send_mail
+from django.conf import settings
 
 @login_required(login_url='/registration/login/')
 def login_request(request):
@@ -57,6 +59,17 @@ def logout_request(request):
     return redirect('login')
 
 def home(request):
+    if request.method == 'post':
+        message_ = 'Hi ' + request.Post.get('firstname'), '\n we have got the your request. One of our staff will contact you as soon as possibly \n Thanks \n Tula',
+        receive =  request.Post['gmail'],
+        send = settings.MAIL_HOST_USER,
+        send_mail(
+            'No-Reply',
+            message_,
+            send,
+            receive,
+            fail_silently=False,
+        )
     return render(request, "index.html")
 
 
