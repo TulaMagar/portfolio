@@ -6,7 +6,29 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source Sans Pro">
       <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      
+      <head>
+         <style>
+         * {
+           box-sizing: border-box;
+         }
+         
+         .column {
+           float: left;
+           width: 33.33%;
+           padding: 5px;
+         }
+         
+         /* Clearfix (clear floats) */
+         .row::after {
+           content: "";
+           clear: both;
+           display: table;
+         }
+         </style>
    </head>
    <body>
       <section class="w3-hide-small main-header">
@@ -121,7 +143,7 @@
                </nav>
             </div>
             <a href="{% url 'logout' %}">
-            <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
+               <button class="w3-hover-light-blue w3-button w3-bar-item">Logout</button>
             </a>
          </div>
          {% else %}
@@ -216,12 +238,44 @@
 
       <div style="text-align: center; width: 70%; margin:auto;">
 
-         <h1> What is this portfolio about?</h1>
-         <p> 
-            Hello, Welcome to my portfolio. Here I will share my knowledge of programming projects, programming languages, fitness, blog and, many other. Those are the basic intro of my portfolio. I am not either sure what I will add to my portfolio.
+            <h1> What is this portfolio about?</h1>
+            <p> 
+               Hello, Welcome to my portfolio. Here I will share my knowledge of programming projects, programming languages, fitness, blog and, many other. Those are the basic intro of my portfolio. I am not either sure what I will add to my portfolio.
+            </p>
+      </div>
+
+
+      <p style="color: aquamarine; height: 50px;">i;jh;lhl;hl;lhklh</p>
+      <div style="width: 80%; margin: auto;" class="row">
+         <div class="column">
+           <p>Have question?</p>
+           <img src="{% static 'gif/ask.gif' %}" alt="Random Name" style="width:100%">
+         </div>
+         <div class="column">
+           <p style="width:100%"> 
+            We are very please to satisfy customers desire program. Our People are expert in customers service, programming languages, 
+            security and, testing. If you want to build something such as website, full stack program, back-end program, API, games and, etc. 
+            please, feel free to contact us and ask any questions, thank you. 
          </p>
-   </div>
+         </div>
+         <div class="column">
+           <p>Work</p>
+           <img src="{% static 'gif/type-typing.gif' %}" alt="Random Name" style="width:100%">
+         </div>
+       </div>
+
+
       <script data-ad-client="ca-pub-4465270782266154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+      <footer style="text-align: center;" class="social-media">
+         <h2>Follow us on social media</h2>
+         <hr />
+         <a href="https://www.facebook.com/"><i class="fab fa-facebook-square fa-2x" > </i> </a>
+         <a href="https://twitter.com/login?lang=en"><i class="fab fa-twitter-square fa-2x"></i></a>
+         <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x"></i></a>
+         <p class="w3-medium">Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+      </footer> 
+      
    </body>
 </html>
 
