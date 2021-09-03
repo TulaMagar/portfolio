@@ -244,3 +244,6 @@ def pythoncomment(request):
 
 def pythonvariable(request):
     return render(request, 'python/variable.html')
+
+
+
